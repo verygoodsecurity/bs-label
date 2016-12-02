@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'bs-presenters'
+  name: 'bs-label'
 };

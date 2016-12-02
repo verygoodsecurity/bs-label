@@ -1,11 +1,11 @@
-# Bs-presenters
+# bs-label
 
 This README outlines the details of collaborating on this Ember addon.
 
 ## Installation
 
 * `git clone <repository-url>` this repository
-* `cd bs-presenters`
+* `cd bs-label`
 * `npm install`
 * `bower install`
 
