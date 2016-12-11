@@ -3,6 +3,12 @@ import { assign } from 'ember-platform';
 import numeral from 'numeral';
 import moment from 'moment';
 
+function mergeProperties(classNames, ...args) {
+  return assign({
+    classNames,
+  }, ...args);
+}
+
 function g(componentName, properties) {
   return {
     componentName: `bs-label/${componentName}`,
@@ -16,27 +22,31 @@ export function text(value, properties) {
   }, properties));
 }
 
-export function tag(textValue, state) {
+export function tag(textValue, state, properties={}) {
   const classNames = isBlank(state) ?
     'label tag label-default tag-default' :
     `label tag label-${state} tag-${state}`;
-  return text(textValue, { classNames });
+  return text(textValue, mergeProperties(classNames, properties));
 }
 
-export function currency(amount) {
-  return text(numeral(amount).divide(100).format('$0,0.00'), {
-    classNames: 'text-currency',
-  });
+export function currency(amount, properties={}) {
+  const t = numeral(amount).divide(100).format('$0,0.00');
+  return text(t, mergeProperties('text-currency', properties));
 }
 
-export function number(amount, format) {
-  return text(numeral(amount).format(format), {
-    classNames: 'text-number',
-  });
+export function number(amount, format, properties={}) {
+  const t = numeral(amount).format(format)
+  return text(t, mergeProperties('text-number', properties));
 }
 
-export function date(date, format='lll') {
-  return text(moment(date).format(format), {
-    classNames: 'text-date',
-  });
+export function date(date, format='lll', properties={}) {
+  const t = moment(date).format(format);
+  return text(t, mergeProperties('text-date', properties));
+}
+
+export function linkTo(text, params, options={}) {
+  return g('link-to', assign({
+    text,
+    params
+  }, options));
 }

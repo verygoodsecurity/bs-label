@@ -66,3 +66,15 @@ test('#date', function(assert) {
     }
   });
 });
+
+test('#linkTo', function(assert) {
+  const a = helpers.linkTo('cool text 123', ['account.example', { id: 123 }], { classNames: 'test-link' });
+  assert.deepEqual(a, {
+    componentName: 'bs-label/link-to',
+    properties: {
+      classNames: 'test-link',
+      text: 'cool text 123',
+      params: ['account.example', { id: 123 }],
+    }
+  })
+});
