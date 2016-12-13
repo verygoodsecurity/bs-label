@@ -78,3 +78,18 @@ test('#linkTo', function(assert) {
     }
   })
 });
+
+test('#link', function(assert) {
+  const a = helpers.link('link text 123', {
+    href: 'https://www.cool-test.com',
+    classNames: 'important-class',
+  });
+  assert.deepEqual(a, {
+    componentName: 'bs-label/link',
+    properties: {
+      href: 'https://www.cool-test.com',
+      classNames: 'important-class',
+      text: 'link text 123',
+    }
+  });
+});

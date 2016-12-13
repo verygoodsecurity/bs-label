@@ -50,3 +50,11 @@ export function linkTo(text, params, options={}) {
     params
   }, options));
 }
+
+export function address(address, options={}) {
+  return g('address', assign({ address }, options));
+}
+
+export function link(text, properties) {
+  return g('link', assign({ text }, properties));
+}
