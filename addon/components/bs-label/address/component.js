@@ -15,7 +15,10 @@ export default EmComponent.extend({
     const city = this.get('presenter.address.city');
     const region = this.get('presenter.address.region');
     const postalCode = this.get('presenter.address.postalCode');
-    return A([city, region, postalCode]).reject(isBlank).join(', ');
+
+    const firstPiece = A([city, region]).reject(isBlank).join(', ');
+
+    return `${firstPiece} ${postalCode || ''}`
   }),
   addressLines: computed('line1', 'line2', 'line3', 'presenter.address.country', function() {
     return A([

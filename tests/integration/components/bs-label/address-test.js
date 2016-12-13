@@ -30,7 +30,7 @@ test('it renders the address', function(assert) {
   }, [
     "123 Main St",
     "#200",
-    "Metropolis, MM, 00000",
+    "Metropolis, MM 00000",
     "USA",
     ""
   ]);
@@ -43,7 +43,7 @@ test('it renders the address', function(assert) {
     country: 'USA'
   }, [
     "123 Main St",
-    "Metropolis, MM, 00000",
+    "Metropolis, MM 00000",
     "USA",
     ""
   ]);
@@ -57,7 +57,7 @@ test('it renders the address', function(assert) {
   }, [
     "123 Main St",
     "#200",
-    "MM, 00000",
+    "MM 00000",
     "USA",
     ""
   ]);
