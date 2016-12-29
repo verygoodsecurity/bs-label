@@ -17,4 +17,21 @@ test('it renders', function(assert) {
   const a = this.$().children('.test-link.link-of-test');
   assert.equal(a.text().trim(), '123 link text');
   assert.equal(a.attr('href'), 'https://www.cool-dude.com');
+  assert.equal(a.attr('target'), undefined);
+});
+
+test('it adds the target attr', function(assert) {
+  this.set('config', {
+    text: '123 link text',
+    href: 'https://www.cool-dude.com',
+    classNames: 'test-link link-of-test',
+    target: '_blank',
+  });
+
+  this.render(hbs`{{bs-label/link presenter=config}}`);
+
+  const a = this.$().children('.test-link.link-of-test');
+  assert.equal(a.text().trim(), '123 link text');
+  assert.equal(a.attr('href'), 'https://www.cool-dude.com');
+  assert.equal(a.attr('target'), '_blank');
 });
